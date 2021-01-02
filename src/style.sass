@@ -1,0 +1,249 @@
+$color_blue: #282f44 
+$color_brown: #e6af2e 
+$color_yellow: #f5d061 
+$color_white: #ececec
+
+@mixin ab_center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+
+@mixin size($w, $h)
+  width: $w
+  height: $h
+
+  
+html, body
+  overflow-x: hidden
+  font-size: 16px
+  font-family: 'Open Sans Condensed', sans-serif
+header
+  position: relative
+  text-align: center
+  background-color: $color_blue
+  .icon
+    width: 80%
+    max-width: 280px
+    padding: 230px 0px
+  .explore
+    color: $color_yellow
+    +ab_center
+    top: 85%
+    opacity: 1
+    font-size: 20px
+    transition: 0.5s
+    &:after
+      content: "V"
+      display: block
+      transform: scale(1.8, 0.5)
+    &.at_top
+      opacity: 0
+      
+  .marginBtn
+    position: absolute
+    bottom: 0px
+    right: -10px
+    width: 90%
+    animation: margin_move 2s both
+
+    @keyframes margin_move
+      0%
+        bottom: -100px
+      100%
+        bottom: 0px
+      
+section
+  padding: 40px 0px
+  position: relative
+  // height: 100vh
+      
+  
+section#s_about
+  background-color: $color_brown
+  #cat
+    width: 30%
+    max-width: 280px
+    position: absolute
+    left: 80%
+    bottom: -10px
+    transform: translateX(-50%)
+  #cross
+    position: absolute
+    opacity: 0
+    &:before,&:after
+      content: ""
+      display: block
+      width: 60px
+      height: 15px
+      background-color: #fff
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%,-50%) rotate(45deg)
+    &:after
+      transform: translate(-50%,-50%) rotate(136deg)
+  .marginBtn
+    position: absolute
+    top: calc( 100% - 2px )
+    left: 0px
+    width: 50%
+    z-index: 2
+    // min-width: 
+  .container
+    transform: rotate(15deg) scale(0.9)
+    .about
+      bottom: -50px
+    .row
+      height: 150px
+      color: black
+      
+      .btn
+        margin-left: 80%
+      
+      .r1t
+        font-size: 80px
+        font-weight: 700
+        transition: 0.1s
+      .r2t
+        font-size: 35px
+        transition: 0.2s
+      .r3t
+        font-size: 50px
+        text-align: right
+        transition: 0.3s
+      .tri
+        transform: rotate(-15deg)
+      .tri1
+        width: 350px
+      .tri2
+        width: 20px
+        margin-left: 40px
+      .tri3
+        width: 150px
+        margin-left: 70%
+      .tri4
+        width: 70px
+        margin-left: 100%
+      .tri5
+        width: 80px
+        margin-left: 100%
+    
+  
+section#s_service
+  background-color: $color_white
+  h1
+    font-size: 40px
+    font-weight: 700
+  .col-sm-4
+    text-align: center
+    h3
+      color: $color_yellow
+      font-weight: 700
+      font-size: 30px
+    img
+      width: 60%
+      
+section#s_work
+  background-color: $color_white
+  .marginBtn
+    position: absolute
+    top: 100%
+    width: 90%
+    animation: upin 2s both
+    z-index: 3
+  h1
+    font-size: 40px
+    font-weight: 700
+  .work
+    height: 230px
+    padding: 5px
+    position: relative
+    cursor: pointer
+    overflow: hidden
+    img
+      +ab_center
+      height: 100%
+    
+    &:before
+      content: ""
+      display: block
+      +ab_center
+      +size(100%, 100%)
+      background-color: rgba(black, 0.6)
+      opacity: 0
+      
+    z-index: 5
+    
+    &.large
+      height: 460px
+      
+    .text
+      +ab_center
+      color: $color_white
+      opacity: 0
+      z-index: 6
+      
+      
+    &:hover
+      &:before, .text
+        opacity: 1
+    
+section#s_contact
+  background-color: $color_blue
+  color: $color_white
+  overflow: hidden
+  padding-top: 120px
+  .cat
+    width: 150px
+    position: absolute
+    bottom: -30px
+    transition: 0.3s
+  #cat_blue
+    right: 200px
+  #cat_grey
+    right: 100px
+  #cat_yellow
+    right: -10px
+  .container
+    .mail
+      height: 400px
+      .envelope
+        +ab_center
+        top: 75%
+        transform: rotate(5deg) scale(2.1) translate(-50%,-50%)
+        img
+          width: 120%
+      .letter
+        background-color: $color_white
+        color: $color_blue
+        position: absolute
+        top: 0px
+        width: 90%
+        padding: 20px
+        transform: translateX(-30px)
+        input, textarea
+          display: block
+          background-color: transparent
+          border: none
+          border: solid 3px $color_blue
+          width: 50%
+        textarea
+          height: 120px
+          width: 80%
+
+    .text
+      padding-left: 30px
+
+        
+footer
+  position: relative
+  background-color: $color_brown
+  text-align: center
+  
+  .icon
+    width: 80%
+    max-width: 250px
+    padding: 80px 0px
+  
+    
